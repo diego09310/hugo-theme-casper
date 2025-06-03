@@ -20,8 +20,8 @@
   <p>Read <a href="{{.Site.BaseURL}}">more posts</a> by this author.</p>
   {{end}}
   <div class="author-meta">
-    {{with $authorlocation}}<span class="author-location icon-location">{{.}}</span>{{end}}
-    {{with $authorwebsite}}<span class="author-link icon-link"><a href="{{.}}">{{.}}</a></span>{{end}}
+        {{with $authorlocation}}<span class="author-location"><i class="fa fa-map-marker"></i>&nbsp&nbsp{{.}}</span>{{end}}
+        {{with $authorwebsite}}<span class="author-link"><i class="fa fa-link"></i><a href="{{.}}">&nbsp&nbsp{{.}}</a></span>{{end}}
   </div>
 </section>
 {{end}}

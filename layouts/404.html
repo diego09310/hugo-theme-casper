@@ -14,9 +14,9 @@
             <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
         {{else}}
             {{ if .Site.Params.RSSLink}}
-              <a class="menu-button icon-feed" href="{{.Site.Params.RSSLink }}">&nbsp;&nbsp;Subscribe</a>
+              <a class="menu-button" href="{{.Site.Params.RSSLink }}"><i class="fa fa-rss"></i>&nbsp;&nbsp;Subscribe</a>
             {{else}}
-              <a class="menu-button icon-feed" href="{{ with .OutputFormats.Get "RSS" }}{{ .RelPermalink }}{{ end }}">&nbsp;&nbsp;Subscribe</a>
+              <a class="menu-button" href="{{ with .OutputFormats.Get "RSS" }}{{ .RelPermalink }}{{ end }}"><i class="fa fa-rss"></i>&nbsp;&nbsp;Subscribe</a>
             {{end}}
         {{end}}
     </nav>
@@ -29,7 +29,7 @@
             <h2 class="page-description">{{ .Site.Params.description }}</h2>
         </div>
     </div>
-    <a class="scroll-down icon-arrow-left" href="#content"><span class="hidden">Scroll Down</span></a>
+    <a class="scroll-down fa fa-angle-down" href="#content"><span class="hidden">Scroll Down</span></a>
 </header>
 
 
