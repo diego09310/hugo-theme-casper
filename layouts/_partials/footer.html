@@ -5,9 +5,12 @@
         {{end}}
     </footer>
     </div>
-    <script type="text/javascript" src="{{"js/jquery.js" | relURL}}"></script>
-    <script type="text/javascript" src="{{"js/jquery.fitvids.js" | relURL}}"></script>
-    <script type="text/javascript" src="{{"js/index.js" | relURL}}"></script>
+    {{ $jquery := resources.Get "js/jquery.js" | minify | fingerprint }}
+    <script type="text/javascript" src="{{ $jquery.Permalink | relURL}}"></script>
+    {{ $fitvids := resources.Get "js/jquery.fitvids.js" | minify | fingerprint }}
+    <script type="text/javascript" src="{{ $fitvids.Permalink | relURL}}"></script>
+    {{ $index := resources.Get "js/index.js" | minify | fingerprint }}
+    <script type="text/javascript" src="{{ $index.Permalink | relURL}}"></script>
     {{ if .Site.Params.customFooterPartial }}
         {{ partial .Site.Params.customFooterPartial . }}
     {{ end }}
