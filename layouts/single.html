@@ -1,24 +1,27 @@
 {{ partial "header.html" . }}
 
-{{if .Params.image}}
-  {{if or (eq (substr .Params.image 0 7) "http://") (eq (substr .Params.image 0 8) "https://")}}
-  <header class="main-header post-head" style="background-image: url({{.Params.image }})">
-  {{ else }}
-  <header class="main-header post-head" style="background-image: url({{.Params.image | relURL}})">
-  {{ end }}
-  <nav class="main-nav overlay clearfix">
-{{else}}
-<header class="main-header post-head no-cover">
-  <nav class="main-nav clearfix">
-{{end}}
 
+{{ if .Params.image }}
+  {{ if or (eq (substr .Params.image 0 7) "http://") (eq (substr .Params.image 0 8) "https://")}}
+    <header class="main-header post-head" style="background-image: url({{.Params.image }})">
+  {{ else }}
+    {{ $cover := .Resources.GetMatch .Params.image }}
+    {{ with $cover }}
+      <header class="main-header post-head" style="background-image: url({{ .Permalink }})">
+    {{ end }}
+  {{ end }}
+  <nav class="main-nav clearfix">
+{{ else }}
+  <header class="main-header post-head no-cover">
+  <nav class="main-nav clearfix">
+{{ end }}
   {{ if .Site.Params.logo }}
-      <a class="blog-logo" href="{{.Site.BaseURL}}"><img src="{{ .Site.Params.logo | relURL}}" alt="Home" /></a>
+    <a class="blog-logo" href="{{.Site.BaseURL}}"><img src="{{ .Site.Params.logo | relURL}}" alt="Home" /></a>
   {{end}}
   {{ if .Site.Menus.main }}
-      <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+    <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
   {{else}}
-      <a class="menu-button" href="{{ "index.xml"| relURL}}" ><i class="fa fa-rss"></i>&nbsp;&nbsp;Subscribe</a>
+    <a class="menu-button" href="{{ "index.xml"| relURL}}" ><i class="fa fa-rss"></i>&nbsp;&nbsp;Subscribe</a>
   {{end}}
   </nav>
 </header>

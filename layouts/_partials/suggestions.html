@@ -1,6 +1,15 @@
 <aside class="read-next">
   {{ with .NextInSection }}
-      <a class="read-next-story" style="{{ if .Params.image }}background-image: url({{ .Params.image | relURL }}){{ else }}no-cover{{ end }}" href="{{ .RelPermalink }}">
+    {{ if .Params.image }}
+      {{ if or (eq (substr .Params.image 0 7) "http://") (eq (substr .Params.image 0 8) "https://") }}
+        <a class="read-next-story prev" style="background-image: url({{ .Params.image }})" href="{{ .RelPermalink }}">
+      {{ else }}
+        {{ $nextCover := .Resources.GetMatch .Params.image }}
+        <a class="read-next-story prev" style="background-image: url({{ if $nextCover }}{{ $nextCover.Permalink }}{{ else }}{{ .Params.image | relURL }}{{ end }})" href="{{ .RelPermalink }}">
+      {{ end }}
+    {{ else }}
+      <a class="read-next-story prev no-cover" href="{{ .RelPermalink }}">
+    {{ end }}
           <section class="post">
               <h2>{{.Title}}</h2>
               <!-- <p>{{ substr .Summary 0  }}</p> -->
@@ -8,7 +17,16 @@
       </a>
   {{ end }}
   {{ with .PrevInSection }}
-      <a class="read-next-story prev" style="{{ if .Params.image }}background-image: url({{ .Params.image  | relURL}}){{ else }}no-cover{{ end }}" href="{{ .RelPermalink }}">
+    {{ if .Params.image }}
+      {{ if or (eq (substr .Params.image 0 7) "http://") (eq (substr .Params.image 0 8) "https://") }}
+        <a class="read-next-story prev" style="background-image: url({{ .Params.image }})" href="{{ .RelPermalink }}">
+      {{ else }}
+        {{ $prevCover := .Resources.GetMatch .Params.image }}
+        <a class="read-next-story prev" style="background-image: url({{ if $prevCover }}{{ $prevCover.Permalink }}{{ else }}{{ .Params.image | relURL }}{{ end }})" href="{{ .RelPermalink }}">
+      {{ end }}
+    {{ else }}
+      <a class="read-next-story prev no-cover" href="{{ .RelPermalink }}">
+    {{ end }}
           <section class="post">
               <h2>{{.Title}}</h2>
           </section>
