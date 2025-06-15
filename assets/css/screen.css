@@ -817,6 +817,17 @@ body.nav-opened .nav {
     margin-right: 6px;
 }
 
+.menu-button.back {
+    display: block;
+    float: left;
+    font-size: 12px;
+    margin-right: 6px;
+}
+.menu-button.back .fa-angle-left {
+    font-size: 15px;
+    margin-right: 6px;
+}
+
 body.nav-opened .menu-button {
     padding: 0 12px;
     background: #111 !important;
@@ -833,7 +844,7 @@ body.nav-opened .menu-button .word {
 }
 
 /* Special styles when overlaid on an image*/
-.main-nav.overlay {
+.main-nav {
     position: absolute;
     top: 0;
     left: 0;
@@ -842,20 +853,20 @@ body.nav-opened .menu-button .word {
     border: none;
     background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%,rgba(0,0,0,0) 100%);
 }
-.no-cover .main-nav.overlay,
+.no-cover .main-nav,
 .no-cover .menu-button {
     background: none;
 }
 
-.main-nav.overlay a {
+.main-nav a {
     color: #fff;
 }
 
-.main-nav.overlay .menu-button {
+.main-nav .menu-button {
     border-color: rgba(255,255,255,0.6);
 }
 
-.main-nav.overlay a:hover {
+.main-nav a:hover {
     color: #222;
     border-color: #fff;
     background: #fff;
@@ -901,7 +912,7 @@ body.nav-opened .menu-button .word {
     color: rgba(0,0,0,0.5);
 }
 
-.no-cover .main-nav.overlay .menu-button {
+.no-cover .main-nav .menu-button {
     color: rgba(0,0,0,0.4);
     border-color: rgba(0,0,0,0.3);
 }
@@ -1633,20 +1644,20 @@ body:not(.post-template) .post-title {
         border: transparent !important;
     }
 
-    .main-nav.overlay a:hover {
+    .main-nav a:hover {
         color: #fff;
         border-color: transparent;
         background: transparent;
     }
 
-    .no-cover .main-nav.overlay {
+    .no-cover .main-nav {
         background: none;
     }
-    .no-cover .main-nav.overlay .menu-button {
+    .no-cover .main-nav .menu-button {
         border: none;
     }
 
-    .main-nav.overlay .menu-button {
+    .main-nav .menu-button {
         border-color: transparent;
     }
 
