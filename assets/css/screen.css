@@ -505,6 +505,7 @@ body.nav-opened .site-wrapper {
 }
 
 .main-header a.bloglogo {
+    color: white;
     text-decoration: none;
 }
 
@@ -518,7 +519,6 @@ body.nav-opened .site-wrapper {
 .main-header a.bloglogo .fa-instagram,
 .main-header a.bloglogo .fa-pinterest,
 .main-header a.bloglogo .fa-google-plus {
-    color: white;
     font-size: 2em;
 }
 
