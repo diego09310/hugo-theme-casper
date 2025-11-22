@@ -17,8 +17,6 @@
 
     {{ if .Site.Params.RSSLink}}
     <a class="subscribe-button" href="{{.Site.Params.RSSLink }}"><i class="fa fa-rss"></i> Subscribe</a> </div>
-    {{else}}
-    <a class="subscribe-button" href="{{if .IsNode}}{{ with .OutputFormats.Get "RSS" }}{{ .RelPermalink }}{{ end }}{{else}}{{"index.xml" | relURL}}{{end}}"><i class="fa fa-rss"></i> Subscribe</a>
     {{end}}
 </div>
 <span class="nav-cover"></span>
